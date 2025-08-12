@@ -1,0 +1,22 @@
+[versions]
+spring-boot = "3.3.2"
+springdoc = "2.6.0"
+mapstruct = "1.5.5.Final"
+liquibase = "4.29.2"
+postgres = "42.7.4"
+testcontainers = "1.20.2"
+lombok = "1.18.34"
+
+[libraries]
+boot-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring-boot" }
+boot-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "spring-boot" }
+boot-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "spring-boot" }
+boot-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "spring-boot" }
+springdoc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
+liquibase = { module = "org.liquibase:liquibase-core", version.ref = "liquibase" }
+postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
+testcontainers-junit = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
+testcontainers-postgres = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
+mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }

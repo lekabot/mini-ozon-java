@@ -1,40 +1,24 @@
 plugins {
-    java
-    id("org.springframework.boot") version "3.5.4"
-    id("io.spring.dependency-management") version "1.1.7"
+  id("com.diffplug.spotless") version "6.25.0"
 }
 
-group = "mini"
-version = "0.0.1-SNAPSHOT"
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(24)
-    }
+allprojects {
+  repositories { mavenCentral() }
 }
 
-configurations {
-    compileOnly {
-        extendsFrom(configurations.annotationProcessor.get())
-    }
-}
+subprojects {
+  apply(plugin = "java")
 
-repositories {
-    mavenCentral()
-}
+  tasks.withType<JavaCompile>().configureEach {
+    sourceCompatibility = "21"
+    targetCompatibility = "21"
+    options.encoding = "UTF-8"
+  }
 
-dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    compileOnly("org.projectlombok:lombok")
-    runtimeOnly("org.postgresql:postgresql")
-    annotationProcessor("org.projectlombok:lombok")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.boot:spring-boot-testcontainers")
-    testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:postgresql")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-}
-
-tasks.withType<Test> {
+  tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+  }
 }
+
+tasks.register("runUsers") { dependsOn(":services:users-service:bootRun") }
+tasks.register("runCatalog") { dependsOn(":services:catalog-service:bootRun") }
