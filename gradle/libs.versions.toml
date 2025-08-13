@@ -20,3 +20,11 @@ testcontainers-postgres = { module = "org.testcontainers:postgresql", version.re
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
 mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }
+boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
+boot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers",   version.ref = "spring-boot" }
+
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version = "3.3.2" }
+spring-dep-mgmt = { id = "io.spring.dependency-management", version = "1.1.5" }
+spotless = { id = "com.diffplug.spotless", version = "6.25.0" }
